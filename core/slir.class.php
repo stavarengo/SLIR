@@ -699,6 +699,9 @@ class SLIR
    */
   private function isSourceImageDesired()
   {
+      if ($this->getSource()->isGIF()) {
+          return true;//não modificamos GIF's pq se não vamos torna-la inanimada
+      }
     if ($this->isWidthDifferent() || $this->isHeightDifferent() || $this->isBackgroundFillOn() || $this->isQualityOn() || $this->isCroppingNeeded()) {
       return false;
     } else {
